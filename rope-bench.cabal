@@ -1,0 +1,82 @@
+-- This file has been generated from package.yaml by hpack version 0.20.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 9c66a76af6f33ea5fb8e94963fe651c74f043760a03b3f577ed7041c65542e39
+
+name:           rope-bench
+version:        0.1.0.0
+description:    Please see the README on Github at <https://github.com/githubuser/rope-bench#readme>
+homepage:       https://github.com/githubuser/rope-bench#readme
+bug-reports:    https://github.com/githubuser/rope-bench/issues
+author:         Author name here
+maintainer:     example@example.com
+copyright:      2018 Author name here
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
+
+extra-source-files:
+    ChangeLog.md
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/githubuser/rope-bench
+
+library
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_rope_bench
+  default-language: Haskell2010
+
+executable rope-bench-exe
+  main-is: Main.hs
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , rope-bench
+  other-modules:
+      Paths_rope_bench
+  default-language: Haskell2010
+
+test-suite rope-bench-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , rope-bench
+  other-modules:
+      Paths_rope_bench
+  default-language: Haskell2010
+
+benchmark rope-bench
+  type: exitcode-stdio-1.0
+  main-is: Bench.hs
+  hs-source-dirs:
+      bench
+  ghc-options: -O2 -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , criterion
+    , random
+    , rope-bench
+    , rope-utf16
+    , rope-utf16-splay
+    , rope-utf16-splay2
+    , yi-rope
+    , text
+  other-modules:
+      Paths_rope_bench
+  default-language: Haskell2010
